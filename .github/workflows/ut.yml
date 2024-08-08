@@ -27,8 +27,8 @@ jobs:
       uses: symbitic/install-cmake@master
     - name: install googletest
       run: |
-        apt-get update 
-        apt-get install -y googletest libgtest-dev lcov
+        sudo apt-get update 
+        sudo apt-get install -y googletest libgtest-dev lcov
 
     - name: build and generate coverage.info
       run: |
