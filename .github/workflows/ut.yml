@@ -58,7 +58,8 @@ jobs:
 #        path: code-coverage-results.md
 #    - name: Write to Job Summary
 #      run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
-    - name: build and generate coverage.info
+
+    - name: show coverage.info
       uses: romeovs/lcov-reporter-action@v0.3.1
       with:
         lcov-file: build/coverage.info
