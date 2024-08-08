@@ -28,7 +28,7 @@ jobs:
     - name: install googletest
       run: |
         sudo apt-get update 
-        sudo apt-get install -y googletest libgtest-dev lcov
+        sudo apt-get install -y googletest libgtest-dev lcov gcovr
 
     - name: build and generate coverage.info
       run: |
@@ -38,6 +38,28 @@ jobs:
         make
         ./test_add 
         lcov --capture --directory . --output-file coverage.info
+        genhtml coverage.info --output-directory out
+        cd ..
+        mkdir cov
+        gcovr -r . --output cov/coverage.xml
+
+
+    - name: Code Coverage Summary Report
+      uses: irongut/CodeCoverageSummary@v1.3.0
+      with:
+        filename: 'cov/coverage.xml'
+        badge: true
+        format: 'markdown'
+        output: 'both'
+
+     # - name: Monitor coverage
+     #   uses: slavcodev/coverage-monitor-action@v1
+     #   with:
+     #     github_token: ${{ secrets.GITHUB_TOKEN }}
+     #     coverage_path: "logs/clover.xml"
+     #     threshold_alert: 10
+     #     threshold_warning: 50
+     #     threshold_metric: "lines"
 
     - name: Report code coverage
       uses: zgosalvez/github-actions-report-lcov@v3
