@@ -1,0 +1,44 @@
+name: C/C++ CI
+on:
+  repository_dispatch:
+    types: [dispatch-event]  
+  workflow_dispatch:
+  workflow_call:
+    secrets:
+      ACCESS_TOKEN:
+        description: 'A token passed from the caller workflow'
+        required: false
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+     - cron:  '30 14 * * * '
+     
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: install cmake
+      uses: symbitic/install-cmake@master
+    - name: install googletest
+      run: |
+        apt-get update 
+        apt-get install -y googletest libgtest-dev lcov
+
+    - name: build and generate coverage.info
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        make
+        ./test_add 
+        lcov --capture --directory . --output-file coverage.info
+
+    - uses: codecov/codecov-action@v1
+        with:
+          file: build/coverage.info
