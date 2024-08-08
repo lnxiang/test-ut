@@ -41,7 +41,7 @@ jobs:
         genhtml coverage.info --output-directory out
         cd ..
         mkdir cov
-        gcovr -r . --output cov/coverage.xml
+        gcovr -r . --output cov/coverage.xml --xml-pretty
 
 
     - name: Code Coverage Summary Report
