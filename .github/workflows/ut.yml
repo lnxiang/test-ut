@@ -62,6 +62,7 @@ jobs:
     - name: Produce the coverage report
       uses: insightsengineering/coverage-action@v2
       with:
+        token: ${{ secrets.lcov_token }}
         path: cov/coverage.xml
         threshold: 80.123
         fail: true
