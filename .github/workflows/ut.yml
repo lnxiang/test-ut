@@ -61,7 +61,7 @@ jobs:
     - name: build and generate coverage.info
       uses: romeovs/lcov-reporter-action@v0.3.1
       with:
-      lcov-file: build/coverage.info
+        lcov-file: build/coverage.info
       
     - name: Report code coverage
       uses: zgosalvez/github-actions-report-lcov@v3
