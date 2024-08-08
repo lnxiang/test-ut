@@ -39,7 +39,18 @@ jobs:
         ./test_add 
         lcov --capture --directory . --output-file coverage.info
 
-    - uses: codecov/codecov-action@v1
+    - name: Report code coverage
+      uses: zgosalvez/github-actions-report-lcov@v3
       with:
-        token: ${{ secrets.lcov_token }}
-        file: build/coverage.info
+        coverage-files: build/coverage.info
+        #minimum-coverage: 90
+        artifact-name: code-coverage-report
+        github-token: ${{ secrets.lcov_token }}
+        #working-directory: apps/my-first-app
+        #update-comment: true
+        
+   # need login codecov create an account 
+   # - uses: codecov/codecov-action@v1
+   #   with:
+   #     token: ${{ secrets.lcov_token }}
+   #     file: build/coverage.info
