@@ -58,20 +58,11 @@ jobs:
 #        path: code-coverage-results.md
 #    - name: Write to Job Summary
 #      run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
-
-    - name: Produce the coverage report
-      uses: insightsengineering/coverage-action@v2
+    - name: build and generate coverage.info
+      uses: romeovs/lcov-reporter-action@v0.3.1
       with:
-        token: ${{ secrets.lcov_token }}
-        path: cov/coverage.xml
-        threshold: 80.123
-        fail: true
-        publish: true
-        diff: false
-        diff-branch: main
-        diff-storage: _xml_coverage_reports
-        coverage-summary-title: "Code Coverage Summary"
-
+      lcov-file: build/coverage.info
+      
     - name: Report code coverage
       uses: zgosalvez/github-actions-report-lcov@v3
       with:
