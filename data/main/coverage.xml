@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE coverage SYSTEM 'http://cobertura.sourceforge.net/xml/coverage-04.dtd'>
+<coverage line-rate="1.0" branch-rate="0.25" lines-covered="10" lines-valid="10" branches-covered="12" branches-valid="48" complexity="0.0" timestamp="1723096845" version="gcovr 5.0">
+  <sources>
+    <source>.</source>
+  </sources>
+  <packages>
+    <package name="src" line-rate="1.0" branch-rate="0.0" complexity="0.0">
+      <classes>
+        <class name="add_cpp" filename="src/add.cpp" line-rate="1.0" branch-rate="0.0" complexity="0.0">
+          <methods/>
+          <lines>
+            <line number="3" hits="4" branch="false"/>
+            <line number="4" hits="4" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="unit_test" line-rate="1.0" branch-rate="0.25" complexity="0.0">
+      <classes>
+        <class name="test_add_cpp" filename="unit_test/test_add.cpp" line-rate="1.0" branch-rate="0.25" complexity="0.0">
+          <methods/>
+          <lines>
+            <line number="4" hits="8" branch="false"/>
+            <line number="5" hits="2" branch="true" condition-coverage="25% (3/12)">
+              <conditions>
+                <condition number="0" type="jump" coverage="25%"/>
+              </conditions>
+            </line>
+            <line number="6" hits="2" branch="true" condition-coverage="25% (3/12)">
+              <conditions>
+                <condition number="0" type="jump" coverage="25%"/>
+              </conditions>
+            </line>
+            <line number="7" hits="2" branch="false"/>
+            <line number="9" hits="8" branch="false"/>
+            <line number="10" hits="2" branch="true" condition-coverage="25% (3/12)">
+              <conditions>
+                <condition number="0" type="jump" coverage="25%"/>
+              </conditions>
+            </line>
+            <line number="11" hits="2" branch="true" condition-coverage="25% (3/12)">
+              <conditions>
+                <condition number="0" type="jump" coverage="25%"/>
+              </conditions>
+            </line>
+            <line number="12" hits="2" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>
