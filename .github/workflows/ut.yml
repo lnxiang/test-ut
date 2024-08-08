@@ -40,5 +40,5 @@ jobs:
         lcov --capture --directory . --output-file coverage.info
 
     - uses: codecov/codecov-action@v1
-        with:
-          file: build/coverage.info
+      with:
+        file: build/coverage.info
